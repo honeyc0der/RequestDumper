@@ -50,6 +50,6 @@
 	</dependencies>
 	
 	<build>
-		<finalName>Request Dumper</finalName>
+		<finalName>request-dumper</finalName>
 	</build>
 </project>

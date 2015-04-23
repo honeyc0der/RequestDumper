@@ -36,13 +36,21 @@ public class RequestDumperController {
 				obj = str.trim();
 			}
 
-			System.out.println(System.getProperty("java.io.tmpdir"));
+			String pathToWrite = System.getenv("CATALINA_BASE");
+
+			if (pathToWrite == null || pathToWrite.isEmpty()) {
+				pathToWrite = System.getProperty("java.io.tmpdir");
+			} else {
+				pathToWrite = pathToWrite + File.separator + "logs";
+			}
+
+			System.out.println(pathToWrite);
 
 			DateFormat df2 = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss:SSS");
 			String formattedDate = df2.format(new Date());
 
-			File file = new File(System.getProperty("java.io.tmpdir")
-					+ File.separator + formattedDate + ".txt");
+			File file = new File(pathToWrite + File.separator + formattedDate
+					+ ".txt");
 
 			fop = new FileOutputStream(file);
 
