@@ -3,6 +3,8 @@ package com.vekomy.request.controller;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.json.JSONArray;
@@ -36,9 +38,12 @@ public class RequestDumperController {
 
 			System.out.println(System.getProperty("java.io.tmpdir"));
 
+			DateFormat df2 = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss:SSS");
+			String formattedDate = df2.format(new Date());
+
 			File file = new File(System.getProperty("java.io.tmpdir")
-					+ File.separator + new Date() + ".txt");
-			
+					+ File.separator + formattedDate + ".txt");
+
 			fop = new FileOutputStream(file);
 
 			// if file doesnt exists, then create it
