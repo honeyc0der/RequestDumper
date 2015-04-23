@@ -37,6 +37,8 @@ public class RequestDumperController {
 			}
 
 			String pathToWrite = System.getenv("CATALINA_BASE");
+			
+			System.out.println(pathToWrite);
 
 			if (pathToWrite == null || pathToWrite.isEmpty()) {
 				pathToWrite = System.getProperty("java.io.tmpdir");
