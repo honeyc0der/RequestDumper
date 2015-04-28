@@ -8,7 +8,6 @@ import com.vekomy.request.service.dao.EmployeeDao;
 @Repository("employeeDao")
 public class EmployeeDaoImpl extends HibernateDao<Employee, Long> implements EmployeeDao {
 
-    @Override
     public boolean removeEmployee(Employee employee) {
         Query employeeTaskQuery = currentSession().createQuery(
                 "from Task t where :id in elements(t.assignedEmployees)");

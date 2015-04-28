@@ -14,7 +14,6 @@ import java.util.List;
 @Repository("taskDao")
 public class TaskDaoImpl extends HibernateDao<Task, Long> implements TaskDao {
 
-    @Override
     public boolean removeTask(Task task) {
         Query taskQuery = currentSession().createQuery(
                 "from Timesheet t where t.task.id = :id");

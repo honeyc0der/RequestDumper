@@ -49,7 +49,6 @@ public class TimesheetServiceImpl implements TimesheetService {
         return sessionFactory.getCurrentSession();
     }
 
-    @Override
     public Task busiestTask() {
         List<Task> tasks = taskDao.list();
         if (tasks.isEmpty()) {
@@ -66,7 +65,6 @@ public class TimesheetServiceImpl implements TimesheetService {
         return busiest;
     }
 
-    @Override
     public List<Task> tasksForEmployee(Employee employee) {
         List<Task> allTasks = taskDao.list();
         List<Task> tasksForEmployee = new ArrayList<Task>();
@@ -80,7 +78,6 @@ public class TimesheetServiceImpl implements TimesheetService {
         return tasksForEmployee;
     }
 
-    @Override
     public List<Task> tasksForManager(Manager manager) {
         Query query = currentSession()
                 .createQuery("from Task t where t.manager.id = :id");

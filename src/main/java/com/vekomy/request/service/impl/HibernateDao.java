@@ -35,27 +35,22 @@ public class HibernateDao<E, K extends Serializable> implements GenericDao<E, K>
         return sessionFactory.getCurrentSession();
     }
 
-    @Override
     public void add(E entity) {
         currentSession().save(entity);
     }
 
-    @Override
     public void update(E entity) {
         currentSession().saveOrUpdate(entity);
     }
 
-    @Override
     public void remove(E entity) {
         currentSession().delete(entity);
     }
 
-    @Override
     public E find(K key) {
         return (E) currentSession().get(daoType, key);
     }
 
-    @Override
     public List<E> list() {
         return currentSession().createCriteria(daoType).list();
     }
