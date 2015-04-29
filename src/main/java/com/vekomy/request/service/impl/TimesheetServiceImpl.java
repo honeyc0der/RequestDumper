@@ -22,20 +22,10 @@ import java.util.Random;
 public class TimesheetServiceImpl implements TimesheetService {
 
     // dependencies
+	@Autowired
     private SessionFactory sessionFactory;
+	@Autowired
     private TaskDao taskDao;
-
-    private Random random = new Random();
-
-    @Autowired
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
-
-    @Autowired
-    public void setTaskDao(TaskDao taskDao) {
-        this.taskDao = taskDao;
-    }
 
     public SessionFactory getSessionFactory() {
         return sessionFactory;

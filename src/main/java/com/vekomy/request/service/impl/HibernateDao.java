@@ -17,18 +17,13 @@ import java.util.List;
  */
 @Transactional(propagation= Propagation.REQUIRED, readOnly=false)
 public class HibernateDao<E, K extends Serializable> implements GenericDao<E, K> {
-
+	@Autowired
     private SessionFactory sessionFactory;
     protected Class<? extends E> daoType;
 
     public HibernateDao() {
         daoType = (Class<E>) ((ParameterizedType) getClass().getGenericSuperclass())
                         .getActualTypeArguments()[0];
-    }
-
-    @Autowired
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
     }
 
     protected Session currentSession() {
