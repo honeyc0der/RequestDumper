@@ -22,7 +22,7 @@ public class RequestDumperController {
 
 	@RequestMapping(value = "/dumpRequest", method = RequestMethod.POST, headers = { "Content-type=application/json" })
 	public @ResponseBody Object getAllProfileTypes(@RequestBody String str) {
-
+		System.out.println(str);
 		FileOutputStream fop = null;
 		try {
 			Object obj = null;
